@@ -1,0 +1,155 @@
+.main-title {
+    font-size: 50px;
+    padding: 70px 0 40px;
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    margin: 0 48px;
+}
+
+.main-filter {
+    flex: 1;
+    padding: 20px;
+}
+
+.main-filter-title {
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.main-filter-ul {
+    margin: 20px 0;
+    list-style-type: none;
+}
+
+.main-filter-li {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.main-filter-li:hover, .filter li:hover {
+color: rgb(202, 202, 202);
+}
+
+.shopall {
+    justify-content: left;
+}
+
+/* main-product-filter mobile */
+
+.main-prododuct-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+
+.filter {
+    display: flex;
+    align-items: center;
+}
+
+.filter ul {
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+    list-style-type: none;
+}
+
+.filter p {
+    margin: 0;
+}
+
+.filter li {
+   margin: 0 3px;
+   font-weight: 300;
+   cursor: pointer;
+}
+
+/* sort btn */
+
+#sortby {
+    position: relative;
+    padding: 0 20px;
+    line-height: 40px;
+    width: 40%;
+    max-width: 200px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float: right;
+    height: 40px;
+    margin: 15px 0;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+#sortby span{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+#sortby-ul {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    border: 1px solid rgb(216, 216, 216);
+    width: 200px;
+    list-style-type: none;
+    z-index: 2;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.50); 
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.50);
+}
+
+.sortby-li {
+    padding: 0 10px;
+}
+
+.sortby-li:hover {
+    background-color: rgb(241, 241, 241);
+}
+
+/* product */
+
+.main-product-conteiner {
+    flex: 5;
+}
+
+.productContainer {
+    clear: right;
+}
+
+.productContainer.shopall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.fouritem {
+    max-width: 350px;
+    width: 100%;
+}
+
+.loadmore-button {
+    display: block;
+    margin: 40px auto;
+    width: 20%;
+    height: 47px;
+    border-radius: 50px;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-size: 17px;
+}

@@ -1,0 +1,127 @@
+.main-checkout {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ship-info {
+    flex: 5;
+    padding: 3% 5%;
+}
+
+.address-info input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.address-info.name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-name, .last-name {
+    width: 45%;
+}
+
+.address-info, .shipping, .payment {
+    margin: 10px 0;
+}
+
+#shipping-container, #payment-container  {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shipping-item, .payment-item {
+    margin: 10px 40px 10px 0;
+}
+
+.shipping, .payment {
+    margin-top: 40px;
+}
+
+.credit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.credit-info {
+    width: 100%;
+}
+
+.credit-info-50 {
+    width: 47%;
+}
+
+.order-sumary {
+    flex: 3;
+    background-color: #edecec;
+    padding: 3% 5%;
+}
+
+.main-checkout h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.item-cart {
+    border-bottom: 1px solid black;
+}
+
+.ck-order-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+
+.order-item {
+    display: flex;
+    margin: 10px 0;
+}
+
+.item-img {
+    max-width: 50px;
+}
+
+.item-info {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.price {
+    color: rgb(56, 69, 243);
+}
+
+.checkout-total {
+    border-top: 1px solid black;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.order-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 30px;
+    background-color: rgb(107, 20, 221);
+    color: white;
+}
+
+.order-btn:hover {
+    background-color: rgb(118, 26, 238);
+}
+
+.order-btn:active {
+    background-color: rgb(98, 18, 204);
+}
+
+@media screen and (max-width: 800px) {
+    .main-checkout {
+        display: block;
+    }
+}

@@ -1,0 +1,62 @@
+.MuiDataGrid-root{
+    border: none !important;
+  
+}
+
+.MuiTablePagination-root {
+    display: none;
+}
+
+.orderInfoTable {
+    height: fit-content;
+    white-space: nowrap;
+}
+
+.orderInfoTableTitle {
+    border-bottom: 1px solid black;
+    height: 50px;
+}
+
+.orderInfoTableItem {
+    height: 70px;
+}
+
+.orderInfoTableStatus {
+    display: inline-block;
+    background-color: rgba(205, 255, 222, 0.819);
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+.orderInfoTableTotal {
+    font-weight: 600;
+}
+
+.orderDetailBtn {
+    padding: 5px 20px;
+}
+
+.orderInfoDelete {
+    color: red;
+    cursor: pointer;
+}
+
+.orderInfoDelete:hover {
+    color: red;
+    transform: scale(1.2);
+}
+
+.orderdetail-price {
+
+    text-align: right;
+    font-size: 18px;
+}
+
+.orderdetail-qty {
+    border: none;
+
+}
+
+.cancelModal .modal-content {
+    background-color: white;
+}

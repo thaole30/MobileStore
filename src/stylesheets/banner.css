@@ -1,0 +1,48 @@
+.bigbanner {
+    position: relative;
+    padding-bottom: 40px;
+    background-color: #edecec94;
+}
+
+.bigbanner-info {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15%;
+    width: 30%;
+}
+
+.bigbanner-title {
+    font-size: 3vw;
+    font-weight: 600;
+}
+
+.bigbanner-p, .helpcenter-p {
+    font-size: 1vw;
+}
+
+.smallbanner {
+    display: flex;
+    padding: 0 3% 40px;
+    justify-content: space-between;
+    background-color: #edecec94;
+}
+
+.smallbanneritem {
+    width: 48.5%;
+    position: relative;
+}
+
+.smallbannerInfo {
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30%;
+    left: 10%;
+}
+
+.smallbannerInfo h2 {
+    font-size: 3vw;
+}

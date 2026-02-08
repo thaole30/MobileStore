@@ -1,0 +1,40 @@
+.info-content {
+    margin-top: 20px;
+}
+
+.form-item {
+    width: 100%;
+}
+
+.form-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-account input {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.form-item.left {
+    margin-right: 20px;
+}
+.form-item.right {
+    margin-left: 20px;
+}
+
+.info-form h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.important::after {
+    content: "*";
+    color: red;
+    
+}

@@ -1,0 +1,107 @@
+.helpcenter {
+    display: flex;
+}
+
+.helpcenter-link {
+    position: relative;
+    width: 40%;
+}
+
+.helpcenter-clip-path {
+    width: 130%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    -webkit-clip-path: polygon(0 0, 73% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 77% 0, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+
+.helpcenter-info {
+    position: absolute;
+    z-index: 2;
+    color: white;
+}
+
+.title-in-img {
+    font-size: 1.95vw;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.button-in-img {
+    margin-top: 1vw;
+    padding: 1vw 3vw;
+    background-color: rgb(77, 75, 238);
+    border: none;
+    color: white;
+    border-radius: 30px;
+    font-size: 1vw;
+}
+
+.button-in-img:hover {
+    background-color: rgb(100, 98, 250);
+}
+
+.helpcenter-img {
+    width: 60%;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 70px 0;
+}
+
+.footer-info-container {
+    flex: 1;
+    padding: 0 5%;
+}
+
+.footer-info-container h3 {
+    margin-bottom: 35px;
+    font-size: 20px;
+}
+
+.footer-info-ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.footer-info-ul li {
+    margin: 15px 0;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.footer-info-ul a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-hr {
+    margin: 10px 100px;
+    border-bottom: 2px solid rgb(182, 182, 182);
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+.footer-p {
+    margin-top: 50px;
+    font-size: small;
+}
+
+.footer-paymethod img {
+    margin: 40px 30px;
+}
+
+.copyright {
+    padding: 15px;
+    font-size: 20px small;
+    background-color: rgb(228, 228, 228);
+    margin: 0;
+}

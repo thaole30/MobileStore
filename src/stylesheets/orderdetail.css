@@ -1,0 +1,17 @@
+.orderdetail-detail {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.orderdetail-detail h2 {
+    width: 100%;
+}
+
+.orderdetail-item-label {
+    margin: 40px 0 0 0;
+}
+
+.orderdetail-detail-container {
+    width: 45%;
+    
+}

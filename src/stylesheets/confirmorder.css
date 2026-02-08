@@ -1,0 +1,36 @@
+.main-confirm-order {
+    padding: 30px 100px;
+}
+
+.main-confirm-order h1 {
+    margin: 20px 0 5px;
+    color: rgb(52 139 221);
+}
+
+.main-confirm-order p {
+    margin: 0;
+    font-weight: 300;
+}
+
+.main-confirm-order h5{
+    margin: 50px 0;
+    color: rgb(39, 39, 224);
+}
+
+.main-confirm-order li {
+    margin: 10px 0;
+    list-style-type: none;
+    display: flex;
+}
+
+.main-confirm-order img {
+    width: 50px;
+    border: 1px solid gray;
+    margin: 0 10px;
+}
+.main-confirm-products {
+    font-size: 18px;
+    margin-top: 20px;
+    display: block;
+    font-weight: 600;
+}

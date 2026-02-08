@@ -1,0 +1,141 @@
+
+.main-productdetail {
+    margin: 172px auto 40px;
+}
+
+.product-top {
+    display: inline-block;
+    margin-bottom: 50px;
+    margin-top: 40px;
+    margin-left: 22%;
+    font-size: 18px;
+}
+
+.link-product {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.link-product a {
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(194, 194, 194);
+    font-weight: 300;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+}
+
+.product-left {
+    width: 30%;
+    margin-right: 1%;
+}
+
+.thumbnails-container img {
+    border: 1px solid #000;
+    margin: 1% 0 3%;
+    width: 50px;
+}
+
+.product-left p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.product-detail-img {
+    border: 1px solid #000;
+}
+
+.product-right {
+    width: 24%;
+    margin-left: 1%;
+}
+
+.product-detail-name {
+    font-size: 30px;
+    margin-bottom: 2%;
+}
+
+.product-detail-price, .product-detail-price s  {
+    font-size: 18px;
+}
+
+.product-detail-price {
+    margin: 3% 0;
+}
+
+.product-detail-qty input {
+    height: 40px;
+    width: 20%;
+    margin: 3% 0;
+    padding: 0 10px;
+}
+
+.product-detail-qty .submit-btn input {
+    width: 85%;
+    border: none;
+    border-radius: 20px;
+    background-color: #751fff;
+    color: white;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-btn input:hover {
+    background-color: #7b29ffca;
+}
+.submit-btn input:active {
+    background-color: #6622d4;
+}
+
+.submit-btn button {
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #004dc9;
+    color: #004dc9;
+    
+}
+
+.submit-btn button:hover {
+    background-color: #f2f7ff;
+}
+.submit-btn button:active {
+    background-color: #e5efff;
+}
+
+.submit-btn button i {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.buy-now-btn {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.buy-now-btn:hover {
+    background-color: rgb(69, 69, 69);
+}
+
+.product-info-title {
+    font-size: 18px;
+}
+
+.product-info-favorite {
+    background-color: #004dc9 !important;
+    color: white !important;
+}

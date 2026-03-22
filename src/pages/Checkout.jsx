@@ -40,7 +40,7 @@ export default function Checkout() {
   const dispatch = useDispatch();
 
   let tt = cartItems.reduce((total, item) => {
-    return (Number(total) + Number(item.price) - item.sale) * Number(item.qty);
+    return Number(total) + (Number(item.price) - item.sale) * Number(item.qty);
   }, 0);
 
   const onFlat = (e) => {
@@ -48,8 +48,8 @@ export default function Checkout() {
     setShippingString(e.target.value);
     setErrorShipping("");
   };
-  const onFree = (e) => {
-    setShipping(0);
+  const onQuickShipping = (e) => {
+    setShipping(10);
     setShippingString(e.target.value);
     setErrorShipping("");
   };
@@ -115,6 +115,7 @@ export default function Checkout() {
         phone,
         address,
         shipping: shippingString,
+        shippingFee: shipping,
         payment,
         products: cartItems,
         total: tt,
@@ -241,10 +242,10 @@ export default function Checkout() {
                       type="radio"
                       name="ship-method"
                       id="free"
-                      value="free"
-                      onClick={onFree}
+                      value="quick shipping"
+                      onClick={onQuickShipping}
                     />
-                    <label for="free">Free on over $100</label>
+                    <label for="free">Quick Shipping - $10.00</label>
                   </div>
                   <div className="shipping-item">
                     <input
@@ -393,10 +394,10 @@ export default function Checkout() {
                 <p className="label">Cart Subtotal</p>
                 <p className="price">${tt}.00</p>
               </div>
-              <div className="ck-order-info">
+              {/* <div className="ck-order-info">
                 <p className="label">Promotion Discount</p>
                 <p className="price">$0.00</p>
-              </div>
+              </div> */}
               <div className="ck-order-info">
                 <p className="label">Shipping</p>
                 <p id="shipping-price">

@@ -73,6 +73,34 @@
     padding: 0 10px;
 }
 
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin: 3% 0;
+}
+
+.qty-btn {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.qty-btn:hover {
+    background-color: #e9e9e9;
+}
+
+.quantity-controls input {
+    height: 40px;
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+}
+
 .product-detail-qty .submit-btn input {
     width: 85%;
     border: none;

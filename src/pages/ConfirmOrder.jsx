@@ -34,7 +34,7 @@ export default function ConfirmOrder() {
         <p>Shipping method: {order.shipping}</p>
         <p>Payment method: {order.payment}</p>
         <p>
-          Total: <b>{order.total}.00$</b>
+          Total fee: <b>{order.total + (order.shippingFee || 0)}.00$</b>
         </p>
         <div className="main-confirm-products">
           Product:

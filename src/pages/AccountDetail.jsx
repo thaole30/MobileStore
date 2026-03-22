@@ -14,6 +14,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../fireConfig";
 import { async } from "@firebase/util";
+import { uploadImgCloud } from "../components/uploadImg";
 import { toast } from "react-toastify";
 
 export default function AccountDetail() {
@@ -25,6 +26,8 @@ export default function AccountDetail() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [id, setId] = useState(null);
+  const [img, setImg] = useState("");
+  const [fileImg, setFileImg] = useState(null);
   const getUser = async () => {
     let user = JSON.parse(localStorage.getItem("currentUser"));
     setEmail(user.email);
@@ -36,17 +39,32 @@ export default function AccountDetail() {
       setPhone(user.phone ?? "");
       setFirstname(user.firstname ?? "");
       setLastname(user.lastname ?? "");
+      setImg(user.img ?? "");
     });
+  };
+
+  const handleImg = (e) => {
+    setFileImg(e.target.files[0]);
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImg(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
   };
 
   const handleSaveInfo = async (e) => {
     e.preventDefault();
+    let imgURL = img;
+    if (fileImg != null) imgURL = await uploadImgCloud(fileImg);
     try {
       if (id) {
         await updateDoc(doc(db, "user", id), {
           firstname,
           lastname,
           phone,
+          img: imgURL,
         });
         toast.success("Update successfull!");
       } else {
@@ -55,6 +73,7 @@ export default function AccountDetail() {
           firstname,
           lastname,
           phone,
+          img: imgURL,
         });
         toast.success("Update successfull!");
       }
@@ -73,6 +92,10 @@ export default function AccountDetail() {
         <AccountInfo />
         <div className="info-content">
           <form action="" className="info-form">
+            <div className="form-avatar">
+              <img src={img || "/images/user_icon.png"} alt="Avatar" className="avatar-preview" />
+              <input type="file" onChange={handleImg} />
+            </div>
             <div className="form-name">
               <div className="form-item left">
                 <label for="">First Name</label>

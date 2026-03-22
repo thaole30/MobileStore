@@ -53,6 +53,7 @@ export default function Login(props) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        console.log(user , "sssssssss")
         localStorage.setItem("currentUser", JSON.stringify(user));
         toast.success("Login success!");
         props.hideLogin();

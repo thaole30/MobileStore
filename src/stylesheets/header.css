@@ -151,6 +151,22 @@
 .personal-icon {
     font-size: 22px;
 }
+.user-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: middle;
+}
+.user-avatar-mobile {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    margin-right: 10px;
+}
 .personal-icon > p {
     display: inline-block;
 }

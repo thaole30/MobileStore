@@ -90,6 +90,18 @@ export default function ProductInfo() {
     else setQty(e.target.value)
   }
 
+  const incrementQty = () => {
+    if (qty < data.stock) {
+      setQty(qty + 1);
+    }
+  }
+
+  const decrementQty = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
+  }
+
   useEffect(() => {
     getProduct();
     docSnap();
@@ -127,13 +139,17 @@ export default function ProductInfo() {
             <form className="product-detail-qty">
               <label for="qty">Quantity</label>
               <br />
-              <input
-                type="number"
-                name="qty"
-                id="qty"
-                value={qty}
-                onChange={handleQty}
-              />
+              <div className="quantity-controls">
+                <button type="button" onClick={decrementQty} className="qty-btn">-</button>
+                <input
+                  type="number"
+                  name="qty"
+                  id="qty"
+                  value={qty}
+                  onChange={handleQty}
+                />
+                <button type="button" onClick={incrementQty} className="qty-btn">+</button>
+              </div>
               <div className="submit-btn">
                 <input
                   type="submit"

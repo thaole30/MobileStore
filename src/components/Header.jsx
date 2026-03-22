@@ -93,7 +93,11 @@ export default function Header() {
         <li>
           {user ? (
             <Link to="/info" className="link">
-              <i className="fa-solid fa-circle-user personal-icon"></i>
+              {user.img ? (
+                <img src={user.img} alt="Avatar" className="user-avatar-mobile" />
+              ) : (
+                <i className="fa-solid fa-circle-user personal-icon"></i>
+              )}
               <span>{user.email.substring(0, user.email.indexOf("@"))}</span>
             </Link>
           ) : (
@@ -218,7 +222,11 @@ export default function Header() {
             {user ? (
               <Link to="/info" style={{ color: "black" }}>
                 <li className="personal-item">
-                  <i className="fa-solid fa-circle-user personal-icon"></i>
+                  {user.img ? (
+                    <img src={user.img} alt="Avatar" className="user-avatar" />
+                  ) : (
+                    <i className="fa-solid fa-circle-user personal-icon"></i>
+                  )}
                   <a href="">
                     {user.email.substring(0, user.email.indexOf("@"))}
                   </a>

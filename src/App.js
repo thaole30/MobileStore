@@ -18,6 +18,7 @@ import ConfirmOrder from './pages/ConfirmOrder';
 import Favorite from './pages/Favorite';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import ChatWidget from './components/ChatWidget/ChatWidget';
 
 // import { useEffect } from 'react';
 
@@ -48,6 +49,7 @@ function App() {
           <Route path='/orderdetail/:orderId' element={<OrderDetail/>} />
           <Route path='/favorite' element={<Favorite/>} />
         </Routes>
+        <ChatWidget />
       </BrowserRouter>
   );
 }

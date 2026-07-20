@@ -1,13 +1,14 @@
 import React from "react";
+import { IconBot } from "./Icons";
 
-export default function ChatMessage({ role, content, type, products, product, qty, onAddToCart, onConfirmCancel }) {
+export default function ChatMessage({ role, content, image, type, products, product, qty, onAddToCart, onConfirmCancel }) {
   const isUser = role === "user";
 
   if (type === "cart-confirm") {
     const displayPrice = product ? (product.price - product.sale).toLocaleString("vi-VN") : "";
     return (
       <div className="chat-message chat-message--bot">
-        <div className="chat-message__avatar">🤖</div>
+        <div className="chat-message__avatar"><IconBot /></div>
         <div className="chat-message__bubble chat-message__bubble--confirm">
           <p className="chat-confirm__text">
             Tìm thấy <strong>{product?.name}</strong> — {displayPrice}đ.<br />
@@ -35,7 +36,7 @@ export default function ChatMessage({ role, content, type, products, product, qt
   if (type === "product-options") {
     return (
       <div className="chat-message chat-message--bot">
-        <div className="chat-message__avatar">🤖</div>
+        <div className="chat-message__avatar"><IconBot /></div>
         <div className="chat-message__bubble chat-message__bubble--options">
           <p className="chat-product-options__label">{content}</p>
           {products.map((p) => (
@@ -62,9 +63,14 @@ export default function ChatMessage({ role, content, type, products, product, qt
   return (
     <div className={`chat-message ${isUser ? "chat-message--user" : "chat-message--bot"}`}>
       {!isUser && (
-        <div className="chat-message__avatar">🤖</div>
+        <div className="chat-message__avatar"><IconBot /></div>
       )}
-      <div className="chat-message__bubble">{content}</div>
+      <div className="chat-message__bubble">
+        {image && (
+          <img src={image} alt="Ảnh khách gửi" className="chat-message__image" />
+        )}
+        {content}
+      </div>
     </div>
   );
 }

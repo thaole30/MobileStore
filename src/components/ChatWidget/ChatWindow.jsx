@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatRegisterForm from "./ChatRegisterForm";
+import { fileToDataUrl, isImageFile, MAX_FILE_SIZE } from "./imageUtils";
+import { IconBot, IconImage } from "./Icons";
 
 const SUGGESTED_QUESTIONS = [
   "Cho tôi xem điện thoại giá rẻ nhất",
@@ -10,18 +12,59 @@ const SUGGESTED_QUESTIONS = [
 
 export default function ChatWindow({ messages, loading, onSend, onClose, showRegisterForm, onRegisterSuccess, onRegisterCancel, onAddToCart, onConfirmCancel }) {
   const [input, setInput] = useState("");
+  const [image, setImage] = useState(null); // data URL base64 của ảnh đính kèm
+  const [imageError, setImageError] = useState("");
   const bottomRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
+  const pickImage = async (file) => {
+    setImageError("");
+    if (!isImageFile(file)) {
+      setImageError("Vui lòng chọn file ảnh.");
+      return;
+    }
+    if (file.size > MAX_FILE_SIZE) {
+      setImageError("Ảnh quá lớn (tối đa 10MB).");
+      return;
+    }
+    try {
+      setImage(await fileToDataUrl(file));
+    } catch {
+      setImageError("Không đọc được ảnh, thử ảnh khác nhé.");
+    }
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = ""; // cho phép chọn lại đúng file vừa xoá
+    if (file) pickImage(file);
+  };
+
+  const handlePaste = (e) => {
+    const file = [...(e.clipboardData?.files ?? [])][0];
+    if (file) {
+      e.preventDefault();
+      pickImage(file);
+    }
+  };
+
+  const clearImage = () => {
+    setImage(null);
+    setImageError("");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = input.trim();
-    if (!text || loading) return;
+    if ((!text && !image) || loading) return;
     setInput("");
-    onSend(text);
+    clearImage();
+    // gửi kèm ảnh thì luôn cần một câu hỏi mặc định cho model
+    onSend(text || "Đây là ảnh gì? Cửa hàng có sản phẩm nào giống không?", image);
   };
 
   const handleSuggestion = (text) => {
@@ -58,6 +101,7 @@ export default function ChatWindow({ messages, loading, onSend, onClose, showReg
             key={i}
             role={msg.role}
             content={msg.content}
+            image={msg.image}
             type={msg.type}
             products={msg.products}
             product={msg.product}
@@ -69,7 +113,7 @@ export default function ChatWindow({ messages, loading, onSend, onClose, showReg
 
         {loading && (
           <div className="chat-message chat-message--bot">
-            <div className="chat-message__avatar">🤖</div>
+            <div className="chat-message__avatar"><IconBot /></div>
             <div className="chat-message__bubble chat-message__bubble--loading">
               <span /><span /><span />
             </div>
@@ -85,23 +129,59 @@ export default function ChatWindow({ messages, loading, onSend, onClose, showReg
         </div>
       ) : (
         <form className="chat-window__input-area" onSubmit={handleSubmit}>
-          <input
-            className="chat-window__input"
-            type="text"
-            placeholder="Nhập tin nhắn..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            disabled={loading}
-            autoFocus
-          />
-          <button
-            className="chat-window__send"
-            type="submit"
-            disabled={loading || !input.trim()}
-            aria-label="Gửi"
-          >
-            ➤
-          </button>
+          {image && (
+            <div className="chat-attachment">
+              <img src={image} alt="Ảnh đính kèm" className="chat-attachment__thumb" />
+              <button
+                type="button"
+                className="chat-attachment__remove"
+                onClick={clearImage}
+                aria-label="Xoá ảnh đính kèm"
+              >
+                ✕
+              </button>
+            </div>
+          )}
+
+          {imageError && <p className="chat-attachment__error">{imageError}</p>}
+
+          <div className="chat-window__input-row">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              hidden
+              onChange={handleFileChange}
+            />
+            <button
+              type="button"
+              className="chat-window__attach"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={loading}
+              aria-label="Đính kèm ảnh"
+              title="Đính kèm ảnh"
+            >
+              <IconImage />
+            </button>
+            <input
+              className="chat-window__input"
+              type="text"
+              placeholder={image ? "Hỏi gì về ảnh này?" : "Nhập tin nhắn..."}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onPaste={handlePaste}
+              disabled={loading}
+              autoFocus
+            />
+            <button
+              className="chat-window__send"
+              type="submit"
+              disabled={loading || (!input.trim() && !image)}
+              aria-label="Gửi"
+            >
+              ➤
+            </button>
+          </div>
         </form>
       )}
     </div>

@@ -1,9 +1,9 @@
-// Xử lý ảnh phía client trước khi gửi lên Groq Vision API.
-// Nén lại để giảm token & tránh vượt giới hạn 20MB của Groq.
+// Xử lý ảnh phía client trước khi gửi lên Gemini API.
+// Nén lại để giảm token & tránh vượt giới hạn ảnh tại client.
 
 const MAX_DIMENSION = 1024; // cạnh dài nhất sau khi resize
 const JPEG_QUALITY = 0.8;
-export const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB — chặn từ đầu, Groq cho tối đa 20MB
+export const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB — chặn từ đầu, đảm bảo gửi ảnh an toàn
 
 export const isImageFile = (file) => !!file && file.type.startsWith("image/");
 
